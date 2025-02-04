@@ -1,0 +1,18 @@
+// Valor de doações que irá crescer
+let targetAmount = 10000; // O valor final da doação
+let currentAmount = 0;
+let speed = 50; // Velocidade da animação
+
+// Função para aumentar o número
+function increaseAmount() {
+    if (currentAmount < targetAmount) {
+        currentAmount += 50; // Incrementa o valor
+        document.getElementById('donationAmount').textContent = 'R$ ' + currentAmount.toFixed(2);
+        setTimeout(increaseAmount, speed); // Chama a função recursivamente
+    } else {
+        document.getElementById('donationAmount').textContent = 'R$ ' + targetAmount.toFixed(2);
+    }
+}
+
+// Inicia a animação assim que a página carregar
+window.onload = increaseAmount;
